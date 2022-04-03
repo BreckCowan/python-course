@@ -1,4 +1,4 @@
-print("This program calculates your BMI.")
+print("This program calculates your BMI mass index.")
 
 
 
