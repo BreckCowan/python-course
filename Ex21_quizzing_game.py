@@ -17,6 +17,7 @@ while endGame != "quit":
         endGame = input(
             "Sorry, there was an error. Please try again. Type 'quit' to exit the game.")
     else:
+        valid_answer = False
         answer_number = 1
         data = json.loads(r.text)
         question = data["results"][0]["question"]
@@ -30,8 +31,16 @@ while endGame != "quit":
         for answer in answers:
             print(str(answer_number) + "- " + html.unescape(answer))
             answer_number += 1
-
-        user_answer = input('\nWhat is your answer?')
+        while valid_answer == False:
+            user_answer = input("Type the correct number")
+            try:
+                user_answer = int(user_answer)
+                if user_answer > len(answers) or user_answer <= 0:
+                    print("Please enter a valid answer.")
+                else:
+                    valid_answer = True
+            except:
+                print("Invalid answer. Please enter a number.")
 
         user_answer = answers[int(user_answer)-1]
 
