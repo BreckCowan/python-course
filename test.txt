@@ -1,0 +1,2 @@
+This text is going to overwrite the contents of the file.
+This text will be appended to the file.
